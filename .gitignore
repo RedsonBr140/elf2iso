@@ -1,0 +1,20 @@
+# Object files
+*.o
+
+# Executables
+*.exe
+*.out
+
+# Libraries
+*.a
+
+# Visual Studio Code
+.vscode/
+
+# NVIM-LSP
+.cache/
+
+# Build directories
+build/
+dist/
+
