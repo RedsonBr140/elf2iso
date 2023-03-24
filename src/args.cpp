@@ -13,8 +13,6 @@ const char *argp_program_version = "elf2iso !unknown!";
 const char *argp_program_bug_address = "<redson@riseup.net>";
 
 namespace args {
-Arguments::Arguments() : video_mode("NTSC"), iso_directory("ISO") {}
-
 char *Argsdoc::docs =
     (char *)"elf2iso -- Simple program to convert PS2 elf files to ISOs.";
 
@@ -31,27 +29,27 @@ const argp_option args::Option::options[] = {
     {0}};
 
 error_t args::Option::ParseOpt(int key, char *arg, struct argp_state *state) {
-  Arguments *arguments = reinterpret_cast<Arguments *>(state->input);
+    Arguments *arguments = reinterpret_cast<Arguments *>(state->input);
 
-  switch (key) {
-  case 'V':
-    arguments->video_mode = arg;
-    break;
-  case 'd':
-    arguments->iso_directory = arg;
-    break;
-  case ARGP_KEY_ARG:
-    if (state->arg_num >= 1)
-      argp_usage(state);
-    arguments->elf_file = arg;
-    break;
-  case ARGP_KEY_END:
-    if (state->arg_num < 1)
-      argp_usage(state);
-    break;
-  default:
-    return ARGP_ERR_UNKNOWN;
-  };
+    switch (key) {
+    case 'V':
+        arguments->video_mode = arg;
+        break;
+    case 'd':
+        arguments->iso_directory = arg;
+        break;
+    case ARGP_KEY_ARG:
+        if (state->arg_num >= 1)
+            argp_usage(state);
+        arguments->elf_file = arg;
+        break;
+    case ARGP_KEY_END:
+        if (state->arg_num < 1)
+            argp_usage(state);
+        break;
+    default:
+        return ARGP_ERR_UNKNOWN;
+    };
 
-  return 0;
+    return 0;
 }
