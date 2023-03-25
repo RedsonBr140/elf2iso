@@ -26,13 +26,23 @@ int main(int argc, char **argv) {
 
     try {
         std::filesystem::copy(arguments.elf_file, arguments.iso_directory);
-        std::cout << arguments.elf_file << "copied to"
-                  << arguments.iso_directory << '\n';
+        std::cout << arguments.elf_file.string() << " copied to "
+                  << arguments.iso_directory.string() << '\n';
     } catch (const std::filesystem::filesystem_error &error) {
         std::cerr << error.what() << '\n';
     }
 
-    std::filesystem::path path = arguments.iso_directory.append("SYSTEM.CNF");
+    std::filesystem::path path = arguments.iso_directory;
+    path.append("SYSTEM.CNF");
     system_cnf::createCNF(path, arguments);
+
+    if (arguments.should_delete) {
+        try {
+            std::filesystem::remove_all(arguments.iso_directory);
+            std::cout << arguments.iso_directory << " deleted with success.\n";
+        } catch (std::filesystem::filesystem_error &error) {
+            std::cerr << error.what() << '\n';
+        }
+    }
     return 0;
 }

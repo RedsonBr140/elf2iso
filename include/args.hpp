@@ -7,6 +7,7 @@ class Arguments {
     std::filesystem::path elf_file;
     std::string video_mode;
     std::filesystem::path iso_directory;
+    bool should_delete;
 
     Arguments() : video_mode("NTSC"), iso_directory("ISO/") {}
 };

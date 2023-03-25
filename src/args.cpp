@@ -45,8 +45,7 @@ error_t args::Option::ParseOpt(int key, char *arg, struct argp_state *state) {
         }
         break;
     case 'd':
-        std::cout << arg;
-        arguments->iso_directory = arg;
+        arguments->should_delete = (arg == nullptr) ? true : false;
         break;
     case ARGP_KEY_ARG:
         if (state->arg_num >= 1)
