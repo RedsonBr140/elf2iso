@@ -25,5 +25,6 @@ sources = [
 elf2iso = executable(bin_name, sources,
   cpp_args : extra_args,
   dependencies : [libisofs],
-  include_directories : inc_dir
+  include_directories : inc_dir,
+  install : true
 )
