@@ -4,6 +4,7 @@
 # Executables
 *.exe
 *.out
+*.elf
 
 # Libraries
 *.a

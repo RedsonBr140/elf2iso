@@ -1,13 +1,12 @@
 #pragma once
 #include <argp.h>
-#include <iostream>
-
+#include <filesystem>
 namespace args {
 class Arguments {
   public:
-    std::string elf_file;
+    std::filesystem::path elf_file;
     std::string video_mode;
-    std::string iso_directory;
+    std::filesystem::path iso_directory;
 
     Arguments() : video_mode("NTSC"), iso_directory("ISO/") {}
 };

@@ -11,13 +11,15 @@ bin_name = 'elf2iso'
 
 libisofs = dependency('libisofs-1', required : true)
 
-extra_args = ['-DVERSION=@0@'.format(version)]
+extra_args = ['-std=c++17','-DVERSION=@0@'.format(version)]
 
 inc_dir = include_directories('include/')
 
 sources = [
   'src/main.cpp',
-  'src/args.cpp'
+  'src/args.cpp',
+  'src/gen_iso.cpp',
+  'src/system_cnf.cpp'
 ]
 
 elf2iso = executable(bin_name, sources,

@@ -20,22 +20,32 @@ char *Argsdoc::argDocs = (char *)"ELF_FILE";
 } // namespace args
 
 const argp_option args::Option::options[] = {
-    {"video", 'V', 0, OPTION_ARG_OPTIONAL, "Video mode (Default: NTSC)"},
-    {"dir", 'd', 0, OPTION_ARG_OPTIONAL,
+    {"video", 'V', "NTSC", OPTION_ARG_OPTIONAL, "Video mode (Default: NTSC)"},
+    {"dir", 'D', "ISO/", OPTION_ARG_OPTIONAL,
      "Generate the ISO from this directory. Useful if you want to include "
      "other files.(Default: ISO) "},
-    {"delete", 'D', 0, 0,
+    {"delete", 'd', 0, 0,
      "Delete ISO directory after building the ISO itself."},
     {0}};
 
 error_t args::Option::ParseOpt(int key, char *arg, struct argp_state *state) {
-    Arguments *arguments = reinterpret_cast<Arguments *>(state->input);
+    auto *arguments = reinterpret_cast<Arguments *>(state->input);
 
     switch (key) {
     case 'V':
-        arguments->video_mode = arg;
+        if (arg != nullptr) {
+            arguments->video_mode = arg;
+            break;
+        }
+        break;
+    case 'D':
+        if (arg != nullptr) {
+            arguments->iso_directory = arg;
+            break;
+        }
         break;
     case 'd':
+        std::cout << arg;
         arguments->iso_directory = arg;
         break;
     case ARGP_KEY_ARG:
