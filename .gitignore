@@ -3,6 +3,7 @@
 # Project-specific
 *.elf
 *.iso
+*.ISO
 ISO/
 
 # Build output
