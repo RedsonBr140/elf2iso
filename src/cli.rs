@@ -22,6 +22,11 @@ pub struct Cli {
     #[arg(short = 'D', long = "dir", default_value = "ISO")]
     pub dir: std::path::PathBuf,
 
+    #[arg(
+        long = "id", default_value = "BOOT.ELF", required = false
+    )]
+    pub id: String,
+
     /// Video mode
     #[arg(
         short = 'v',
