@@ -31,13 +31,7 @@ Elf2iso depends on:
 
 ## Installation
 ### Linux
-
-1. Clone the repository: `git clone https://github.com/username/elf2iso.git`
-2. Navigate to the project directory: `cd elf2iso`
-3. Build the project: `cargo build`
-4. Install the binary: `cargo install --path .`
-
-(I swear i'll add to crates.io)
+1. Install from `crates.io`: `cargo install elf2iso`
 
 ## License
 
