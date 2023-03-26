@@ -7,8 +7,8 @@ use std::io;
 use std::process::Command;
 
 fn main() -> Result<(), Box<io::Error>> {
-    let path = Path::new("ISO/");
     let args = cli::Cli::parse();
+    let path = Path::new(&args.dir);
     let elf_path = PathBuf::from(args.elf.unwrap());
 
     if let Err(err) = fs::create_dir(path) {

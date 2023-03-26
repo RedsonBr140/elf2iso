@@ -16,6 +16,7 @@ This would generate a `top10elfs.iso` file at the current directory, with the vi
 
 ```
   -d, --delete        whether to delete ISO directory after building the ISO itself
+  -D, --dir <DIR>     [default: ISO]
   -v, --video <MODE>  Video mode [default: NTSC]
   -h, --help          Print help
   -V, --version       Print version
