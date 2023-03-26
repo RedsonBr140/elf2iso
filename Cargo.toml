@@ -1,5 +1,9 @@
 [package]
 name = "elf2iso"
+description = "A command-line tool for converting ELF files to ISO format for the PlayStation 2."
+license-file = "LICENSE"
+readme = "README.md"
+repository = "https://github.com/RedsonBr140/elf2iso"
 version = "0.1.0"
 edition = "2021"
 
