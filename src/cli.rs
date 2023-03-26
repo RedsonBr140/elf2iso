@@ -19,9 +19,9 @@ pub struct Cli {
     #[arg(short = 'd', long = "delete", required = false)]
     pub should_delete: bool,
 
-    /* FIXME: Trying to figure out.
-        #[arg(short = 'D')]
-        dir: Box<Path>,
+    /* TODO: Don't hardcode "ISO/". Use this instead
+        #[arg(short = 'D'), default_value = "ISO"]
+        dir: std::path::PathBuf,
     */
     /// Video mode
     #[arg(

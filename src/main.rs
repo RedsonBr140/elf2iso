@@ -46,5 +46,10 @@ fn main() -> Result<(), Box<io::Error>> {
         let error = String::from_utf8_lossy(&output.stderr);
         println!("Command failed with error: {}", error);
     }
+
+    if args.should_delete {
+        fs::remove_dir_all(path)?;
+        println!("{} deleted as desired.", path.display());
+    }
     Ok(())
 }
