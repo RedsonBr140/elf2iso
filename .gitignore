@@ -1,21 +1,23 @@
-# Object files
-*.o
+# Rust
 
-# Executables
-*.exe
-*.out
+# Project-specific
 *.elf
+*.iso
+ISO/
 
-# Libraries
-*.a
+# Build output
+/target/
+Cargo.lock
 
-# Visual Studio Code
-.vscode/
+# Rust Language Server (RLS)
+.rustc.toml
+.rustfmt.toml
+.cargo/
 
-# NVIM-LSP
+# Emacs
+\#*\#
+.\#*
+
+# Vim
+.swp
 .cache/
-
-# Build directories
-build/
-dist/
-

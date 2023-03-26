@@ -1,7 +1,7 @@
 # elf2iso
 
 A command-line tool for converting ELF files to ISO format for the PlayStation 2.
-
+<!--
 ## Usage
 
 ```bash
@@ -15,8 +15,8 @@ This would generate a `hello.iso` file at the current directory, with the video 
 ### Options
 
 
-|Short|Long| Description |
-|--|--|---|
+| Short |Long| Description |
+| ----- | -- | ----------- |
 |  -o | --output[=ELF_FILE.iso | Where to output the iso (Default: $(PWD)/ELF_FILE_NAME.iso) |
 |  -d | --delete |               Delete ISO directory after building the ISO itself. |
 |  -D | --dir[=ISO/] |           Generate the ISO from this directory. Useful if you want to include other files. (Default: ISO) |
@@ -41,6 +41,7 @@ Elf2iso depends on:
 3. Setup meson: `meson setup build`
 4. Build the project: `meson compile -C build`
 4. Install the binary: `sudo meson install -C build`
+-->
 
 ## License
 
