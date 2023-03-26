@@ -21,11 +21,11 @@ fn main() -> Result<(), Box<io::Error>> {
     println!("Created {} directory.", path.display());
 
     println!("Copying {} to {}", elf_path.display(), path.display());
-    fs::copy(&elf_path, path.join("BOOT.ELF"))?;
+    fs::copy(&elf_path, path.join(&args.id))?;
 
     let cnf_content = format!(
-        "BOOT2 = cdrom0:\\BOOT.ELF;1\nVER = 1.00\nVMODE = {}\n",
-        args.video
+        "BOOT2 = cdrom0:\\{};1\nVER = 1.00\nVMODE = {}\n",
+        args.id ,args.video
     );
 
     let mut system_cnf = File::create(path.join("SYSTEM.CNF"))?;
